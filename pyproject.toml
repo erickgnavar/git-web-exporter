@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "git-web-exporter"
+version = "0.1.0"
+description = "Git history exporter to tutorial website"
+authors = ["Erick Navarro <erick@navarro.io>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+GitPython = "^3.1.24"
+Markdown = "^3.3.4"
+Pygments = "^2.10.0"
+python-slugify = "^5.0.2"
+Jinja2 = "^3.0.1"
+
+[tool.poetry.dev-dependencies]
+black = "^21.9b0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
