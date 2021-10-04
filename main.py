@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import difflib
-import shutil
 import sys
 from pathlib import Path
 
@@ -97,12 +96,13 @@ def render_repo_data(data: dict) -> None:
     with open(base_html) as f:
         template = Template(f.read())
 
+    with open(styles) as f:
+        styles_content = f.read()
+
     output_dir = Path("./output")
 
     if not output_dir.exists():
         output_dir.mkdir()
-
-    shutil.copy(styles, output_dir / Path("styles.css"))
 
     generate_index = True
 
@@ -134,6 +134,7 @@ def render_repo_data(data: dict) -> None:
             "body": render_markdown(page["body"]),
             "toc": toc,
             "changes": changes,
+            "styles": styles_content,
         }
 
         with open(output_dir / html_filename, "w") as f:
